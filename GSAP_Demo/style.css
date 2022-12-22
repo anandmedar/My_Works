@@ -1,0 +1,14 @@
+body {
+  margin: 10px;
+  overflow-x: hidden;
+}
+
+button {
+  text-transform: none;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
