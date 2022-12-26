@@ -1,240 +1,106 @@
-@keyframes zoom {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
+/* =============== Fonts =============== */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap"); 
+
+/* =============== Variables =============== */
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --clr-white: #fff;
 }
-html,
+
+/* =============== Global Styles =============== */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  overflow: hidden;
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
   line-height: 1.5;
-  font-family: "Montserrat", "Arial", sans-serif;
-  color: #fff;
-  text-align: center;
+  font-size: 0.875rem;
 }
-html,
-body,
-.full-menu,
-.content {
-  width: 100%;
-  height: 100%;
+
+ul {
+  list-style-type: none;
 }
-.full-menu,
-.content {
+a {
+  text-decoration: none;
+}
+
+/* =============== Navbar =============== */
+nav {
+  background: var(--clr-white);
+  box-shadow: var(--light-shadow);
+}
+
+.nav-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
-.content {
-  background-image: url(@keyframes zoom {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-  html,
-  body {
-    overflow: hidden;
-    line-height: 1.5;
-    font-family: "Montserrat", "Arial", sans-serif;
-    color: #fff;
-    text-align: center;
-  }
-  html,
-  body,
-  .full-menu,
-  .content {
-    width: 100%;
-    height: 100%;
-  }
-  .full-menu,
-  .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .content {
-    background-image: url(img1.jpg);
-    background-size: cover;
-    font-size: 3em;
-  }
-  .full-menu {
-    position: absolute;
-    background-color: #1e88e5;
-    opacity: 0.5;
-    transform: translateX(100%);
-    transition: all 400ms ease-in;
-  }
-  .full-menu li {
-    font-size: 4em;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(2%);
-    transition: all 300ms ease-in;
-    cursor: pointer;
-  }
-  .full-menu li:after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    width: 0%;
-    left: 0;
-    bottom: 0;
-    background-color: #fff;
-    transition: width 200ms ease-in;
-  }
-  .full-menu li:hover:after {
-    width: 100%;
-  }
-  .full-menu ul {
-    list-style: none;
-  }
-  .full-menu.active {
-    transform: translateX(0%);
-    opacity: 1;
-    z-index: 0;
-  }
-  .full-menu.active .home {
-    transition-delay: 0.3s;
-  }
-  .full-menu.active .about {
-    transition-delay: 0.4s;
-  }
-  .full-menu.active .works {
-    transition-delay: 0.5s;
-  }
-  .full-menu.active .contact {
-    transition-delay: 0.6s;
-  }
-  .full-menu.active li {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-  .full-menu.active li:hover {
-    animation: zoom 200ms ease-in;
-  }
-  .hamburguer {
-    position: absolute;
-    width: 2em;
-    height: 2em;
-    margin: 3em;
-    z-index: 1;
-    cursor: pointer;
-  }
-  .hamburguer:hover {
-    animation: zoom 300ms ease-in;
-  }
-  .lines {
-    background-color: #fff;
-    width: 100%;
-    height: 5px;
-    margin: 5px 0;
-    transition: all 450ms ease-in;
-  }
-  .close-hamburguer .lines {
-    cursor: pointer;
-  }
-  .close-hamburguer .line-top {
-    transform: translateY(200%) rotate(45deg);
-  }
-  .close-hamburguer .line-mid {
-    opacity: 0;
-  }
-  .close-hamburguer .line-bottom {
-    transform: translateY(-200%) rotate(135deg);
-  }
-  );
-  background-size: cover;
-  font-size: 3em;
-}
-.full-menu {
-  position: absolute;
-  background-color: #1e88e5;
-  opacity: 0.5;
-  transform: translateX(100%);
-  transition: all 400ms ease-in;
-}
-.full-menu li {
-  font-size: 4em;
-  color: #fff;
-  opacity: 0;
-  transform: translateY(2%);
-  transition: all 300ms ease-in;
+
+.nav-toggle {
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--transition);
   cursor: pointer;
 }
-.full-menu li:after {
-  content: "";
-  position: absolute;
-  height: 5px;
-  width: 0%;
-  left: 0;
-  bottom: 0;
-  background-color: #fff;
-  transition: width 200ms ease-in;
+
+.nav-toggle:hover {
+  color: var(--clr-primary-1);
+  transform: rotate(90deg);
 }
-.full-menu li:hover:after {
-  width: 100%;
+
+.logo {
+  height: 70px;
+  width: 70px;
+  border-radius: 63px;
 }
-.full-menu ul {
-  list-style: none;
+
+.links a {
+  color: var(--clr-grey-3);
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
 }
-.full-menu.active {
-  transform: translateX(0%);
-  opacity: 1;
-  z-index: 0;
+
+.links a:hover {
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-5);
+  padding-left: 1.5rem;
 }
-.full-menu.active .home {
-  transition-delay: 0.3s;
+
+.links {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
 }
-.full-menu.active .about {
-  transition-delay: 0.4s;
+.show-links {
+  height: 10rem;
 }
-.full-menu.active .works {
-  transition-delay: 0.5s;
-}
-.full-menu.active .contact {
-  transition-delay: 0.6s;
-}
-.full-menu.active li {
-  opacity: 1;
-  transform: translateX(0%);
-}
-.full-menu.active li:hover {
-  animation: zoom 200ms ease-in;
-}
-.hamburguer {
-  position: absolute;
-  width: 2em;
-  height: 2em;
-  margin: 3em;
-  z-index: 1;
-  cursor: pointer;
-}
-.hamburguer:hover {
-  animation: zoom 300ms ease-in;
-}
-.lines {
-  background-color: #fff;
-  width: 100%;
-  height: 5px;
-  margin: 5px 0;
-  transition: all 450ms ease-in;
-}
-.close-hamburguer .lines {
-  cursor: pointer;
-}
-.close-hamburguer .line-top {
-  transform: translateY(200%) rotate(45deg);
-}
-.close-hamburguer .line-mid {
-  opacity: 0;
-}
-.close-hamburguer .line-bottom {
-  transform: translateY(-200%) rotate(135deg);
-}
+
+
