@@ -2,43 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Quiz</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="freeCodeCamp Accessibility Quiz practice project" />
+    <title>Accessibility Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <header class="header bg-primary">
-        <div class="left-title">JS Quiz</div>
-        <div class="right-title">Total Questions: <span id="tque"></span></div>
-        <div class="clearfix"></div>
+    <header>
+        <img id="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg">
+        <h1>HTML/CSS Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="#student-info" accesskey='i'>INFO</a></li>
+                <li><a href="#html-questions" accesskey='h'>HTML</a></li>
+                <li><a href="#css-questions" accesskey='c'>CSS</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="result" class="quiz-body">
-                        <form name="quizForm" onSubmit="">
-                            <fieldset class="form-group">
-                                <h4><span id="qid">1.</span> <span id="question"></span></h4>
-                                <div class="option-block-container" id="question-options"> </div>
-                                <!-- End of option block -->
-                            </fieldset> <button name="previous" id="previous" class="btn btn-success">Previous</button>
-                            &nbsp; <button name="next" id="next" class="btn btn-success">Next</button>
-                        </form>
+    <main>
+        <form method="post" action="https://freecodecamp.org/practice-project/accessibility-quiz">
+            <section role="region" aria-labelledby="student-info">
+                <h2 id="student-info">Student Info</h2>
+                <div class="info">
+                    <label for="student-name">Name:</label>
+                    <input type="text" name="student-name" id="student-name" />
+                </div>
+                <div class="info">
+                    <label for="student-email">Email:</label>
+                    <input type="email" name="student-email" id="student-email" />
+                </div>
+                <div class="info">
+                    <label for="birth-date">D.O.B.<span class="sr-only">(Date of Birth)</span></label>
+                    <input type="date" name="birth-date" id="birth-date" />
+                </div>
+            </section>
+            <section role="region" aria-labelledby="html-questions">
+                <h2 id="html-questions">HTML</h2>
+                <div class="question-block">
+                    <p>1</p>
+                    <fieldset class="question" name="html-question-one">
+                        <legend>
+                            The legend element represents a caption for the content of its
+                            parent fieldset element
+                        </legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q1-a1">
+                                    <input type="radio" id="q1-a1" name="q1" value="true" />
+                                    True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q1-a2">
+                                    <input type="radio" id="q1-a2" name="q1" value="false" />
+                                    False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+                <div class="question-block">
+                    <p>2</p>
+                    <fieldset class="question" name="html-question-two">
+                        <legend>
+                            A label element nesting an input element is required to have a
+                            for attribute with the same value as the input's id
+                        </legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q2-a1">
+                                    <input type="radio" id="q2-a1" name="q2" value="true" />
+                                    True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q2-a2">
+                                    <input type="radio" id="q2-a2" name="q2" value="false" />
+                                    False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </section>
+            <section role="region" aria-labelledby="css-questions">
+                <h2 id="css-questions">CSS</h2>
+                <div class="formrow">
+                    <div class="question-block">
+                        <label for="customer">Are you a frontend developer?</label>
                     </div>
-                </div> <!-- End of col-sm-12 -->
-            </div> <!-- End of row -->
-        </div> <!-- ENd of container fluid -->
-    </div> <!-- End of content -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
+                    <div class="answer">
+                        <select name="customer" id="customer" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="css-questions">Do you have any questions:</label>
+                    </div>
+                    <div class="answer">
+                        <textarea id="css-questions" name="css-questions" rows="5" cols="24"
+                            placeholder="Who is flexbox..."></textarea>
+                    </div>
+                </div>
+            </section>
+            <button type="submit">Send</button>
+        </form>
+    </main>
+    <footer>
+        <address>
+            <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+            San Francisco<br />
+            California<br />
+            USA
+        </address>
+    </footer>
 </body>
 
 </html>
